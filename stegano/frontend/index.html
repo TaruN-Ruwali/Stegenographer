@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Steganography</title>
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔒 Multimedia Steganography</h1>
+            <p>Hide and extract secret messages in images, audio, and video files</p>
+        </header>
+
+        <div class="app-container">
+            <!-- Carrier Type Selection -->
+            <div class="card">
+                <h3>1. Select Carrier Type</h3>
+                <div class="carrier-options">
+                    <label class="carrier-option">
+                        <input type="radio" name="carrier_type" value="image" checked>
+                        <div class="option-content">
+                            <span class="icon">🖼️</span>
+                            <span>Image</span>
+                            <small>PNG, JPG, BMP</small>
+                        </div>
+                    </label>
+                    
+                    <label class="carrier-option">
+                        <input type="radio" name="carrier_type" value="audio">
+                        <div class="option-content">
+                            <span class="icon">🎵</span>
+                            <span>Audio</span>
+                            <small>WAV</small>
+                        </div>
+                    </label>
+                    
+                    <label class="carrier-option">
+                        <input type="radio" name="carrier_type" value="video">
+                        <div class="option-content">
+                            <span class="icon">🎥</span>
+                            <span>Video</span>
+                            <small>MP4, AVI, MOV</small>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- File Upload -->
+            <div class="card">
+                <h3>2. Upload Carrier File</h3>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <span class="upload-icon">📁</span>
+                        <p>Click to upload or drag and drop</p>
+                        <small id="fileRequirements">Supports: PNG, JPG, BMP</small>
+                    </div>
+                    <input type="file" id="carrierFile" accept=".png,.jpg,.jpeg,.bmp" hidden>
+                </div>
+                <div id="filePreview" class="file-preview"></div>
+            </div>
+
+            <!-- Secret Text Input -->
+            <div class="card">
+                <h3>3. Enter Secret Message</h3>
+                <textarea id="secretText" placeholder="Type your secret message here..." rows="4"></textarea>
+                <div class="char-counter">
+                    <span id="charCount">0</span> characters
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="encodeBtn" class="btn btn-primary">
+                    <span class="btn-icon">🔒</span>
+                    Hide Text in File
+                </button>
+                <button id="decodeBtn" class="btn btn-secondary">
+                    <span class="btn-icon">🔍</span>
+                    Extract Text from File
+                </button>
+            </div>
+
+            <!-- Results -->
+            <div id="results" class="card results" style="display: none;">
+                <h3>Results</h3>
+                <div id="resultContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="/script.js"></script> -->
+     <script src="script.js"></script>
+</body>
+</html>
