@@ -71,4 +71,88 @@ This project focuses on **simplicity, reliability, and educational clarity**, ma
 ---
 
 ## 📁 Project Structure
+multimedia_steganography/
+│
+├── app.py # Main Flask application
+├── run.py # App runner
+├── requirements.txt # Dependencies
+│
+├── stegano_modules/
+│ ├── init.py
+│ ├── image_stegano.py # Image LSB steganography
+│ ├── audio_stegano.py # Audio LSB steganography
+│ └── video_stegano.py # Video frame-based steganography
+│
+└── frontend/
+├── index.html # Web interface
+├── style.css # Styling
+├── script.js # Frontend logic
+└── uploads/ # Temporary file storage
 
+---
+
+## 🚀 Installation & Running
+
+### 1️⃣ Clone the repository
+```bash
+git clone <repository_url>
+cd multimedia_steganography
+pip install -r requirements.txt
+python app.py
+http://localhost:5000
+```
+
+##🖥️ Web Interface Features
+###🔐 Hide Data
+
+Select carrier type (Image / Audio / Video)
+
+Upload file (drag & drop supported)
+
+Enter secret text
+
+Click "Hide Text in File"
+
+Download encoded file
+
+###🔍 Extract Data
+
+Upload encoded media file
+
+Click "Extract Text from File"
+
+View extracted secret message
+
+###🔐 Validation & Security
+
+✔ File type validation per carrier
+
+✔ Maximum file size: 16MB
+
+✔ Secure filenames using secure_filename()
+
+✔ UUID-based unique file naming
+
+✔ Clear error messages for:
+
+Wrong file format
+
+No file selected
+
+No text entered
+
+File too small for message
+
+###🧪 Testing Scenarios
+Test Case	Expected Result
+JPEG Image + "Hello"	Download PNG → Extract "Hello"
+WAV Audio + "Secret"	Download WAV → Extract "Secret"
+MP4 Video + "Test"	Download MP4 → Extract "Test"
+Wrong File Type	Error message
+No Text Entered	Error message
+##📦 Dependencies
+Flask==2.3.3
+opencv-python==4.8.1.78
+numpy==1.24.3
+Pillow==10.0.1
+Werkzeug==2.3.7
